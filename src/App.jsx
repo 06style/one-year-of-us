@@ -5,90 +5,67 @@ import {
   useLocation
 } from "react-router-dom";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 import Home from "./pages/Home";
 import Cake from "./pages/Cake";
 import Memories from "./pages/Memories";
-const BASE = import.meta.env.BASE_URL;
-
 
 function ScrollToTop() {
   const { pathname } = useLocation();
 
   useEffect(() => {
-    window.scrollTo({
-      top: 0,
-      left: 0,
-      behavior: "instant"
-    });
+    window.scrollTo(0, 0);
   }, [pathname]);
 
   return null;
 }
 
-
 function App() {
+  const [cakeUnlocked, setCakeUnlocked] = useState(
+    localStorage.getItem("cakeUnlocked") === "true"
+  );
 
-  // ================= MUSIC =================
+  const [memoriesUnlocked, setMemoriesUnlocked] = useState(
+    localStorage.getItem("memoriesUnlocked") === "true"
+  );
+
   useEffect(() => {
-    const startMusic = () => {
-      const audio = document.getElementById("siteMusic");
+    const updateUnlocks = () => {
+      setCakeUnlocked(
+        localStorage.getItem("cakeUnlocked") === "true"
+      );
 
-      if (audio) {
-        audio.volume = 0.35;
-
-        audio.play().catch(() => {});
-      }
+      setMemoriesUnlocked(
+        localStorage.getItem("memoriesUnlocked") === "true"
+      );
     };
 
-    window.addEventListener("click", startMusic, {
-      once: true
-    });
+    window.addEventListener("unlockChanged", updateUnlocks);
 
     return () => {
-      window.removeEventListener("click", startMusic);
+      window.removeEventListener("unlockChanged", updateUnlocks);
     };
   }, []);
 
-
-  // ================= UNLOCK STATUS =================
-
-  const cakeUnlocked =
-    localStorage.getItem("cakeUnlocked") === "true";
-
-  const memoriesUnlocked =
-    localStorage.getItem("memoriesUnlocked") === "true";
-
-
   return (
     <>
-
-      {/* ================= SCROLL TO TOP ================= */}
       <ScrollToTop />
 
-
-      {/* ================= WEBSITE MUSIC ================= */}
       <audio
         id="siteMusic"
-        src={`${BASE}music/story-music.mp3`}
+        src={`${import.meta.env.BASE_URL}music/story-music.mp3`}
         loop
         preload="auto"
       />
 
-
-      {/* ================= ROUTES ================= */}
-
       <Routes>
 
-        {/* HOME */}
         <Route
           path="/"
           element={<Home />}
         />
 
-
-        {/* CAKE */}
         <Route
           path="/cake"
           element={
@@ -98,8 +75,6 @@ function App() {
           }
         />
 
-
-        {/* MEMORIES */}
         <Route
           path="/memories"
           element={
@@ -114,23 +89,14 @@ function App() {
           }
         />
 
-
-        {/* UNKNOWN URL */}
         <Route
           path="*"
-          element={
-            <Navigate
-              to="/"
-              replace
-            />
-          }
+          element={<Navigate to="/" replace />}
         />
 
       </Routes>
-
     </>
   );
 }
-
 
 export default App;
