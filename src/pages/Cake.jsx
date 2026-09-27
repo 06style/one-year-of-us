@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import "./Cake.css";
+const BASE = import.meta.env.BASE_URL;
 
 function Cake() {
   const [showWish, setShowWish] = useState(false);
@@ -232,7 +233,7 @@ function Cake() {
             {/* 1 */}
             <div className="memory m1">
               <img
-                src="/images/memories/cake-memory-1.png"
+                src={`${BASE}images/memories/cake-memory-1.png`}
                 alt="Memory 1"
               />
             </div>
@@ -241,7 +242,7 @@ function Cake() {
             {/* 2 */}
             <div className="memory m2">
               <img
-                src="/images/memories/cake-memory-2.png"
+              src={`${BASE}images/memories/cake-memory-2.png`}
                 alt="Memory 2"
               />
             </div>
@@ -250,7 +251,7 @@ function Cake() {
             {/* 3 — LARGE */}
             <div className="memory m3">
               <img
-                src="/images/memories/cake-memory-3.png"
+              src={`${BASE}images/memories/cake-memory-3.png`}
                 alt="Memory 3"
               />
             </div>
@@ -259,7 +260,7 @@ function Cake() {
             {/* 4 — SMALL */}
             <div className="memory m4">
               <img
-                src="/images/memories/cake-memory-4.jpeg"
+              src={`${BASE}images/memories/cake-memory-4.jpeg`}
                 alt="Memory 4"
               />
             </div>
@@ -268,7 +269,7 @@ function Cake() {
             {/* 5 */}
             <div className="memory m5">
               <img
-                src="/images/memories/cake-memory-5.png"
+               src={`${BASE}images/memories/cake-memory-5.png`}
                 alt="Memory 5"
               />
             </div>
@@ -281,7 +282,7 @@ function Cake() {
                 ref={(el) => {
                   videoRefs.current[0] = el;
                 }}
-                src="/images/memories/cake-video-6.mp4"
+               src={`${BASE}images/memories/cake-video-6.mp4`}
                 muted
                 loop
                 playsInline
@@ -325,13 +326,10 @@ function Cake() {
           <span className="voice-hint">
             press play when you're ready ♡
           </span>
-
-          <audio
-            controls
-            src="/audio/voice-note.mp3"
-          />
-
-        </div>
+<audio
+  controls
+  src={`${BASE}audio/voice-note.mp3`}
+/>
 
 <Link
   to="/memories"
@@ -344,6 +342,8 @@ function Cake() {
   Continue to our memories
   <span>→</span>
 </Link>
+
+  </div>
 
       </section>
 

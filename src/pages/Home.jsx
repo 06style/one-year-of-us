@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./Home.css";
+const BASE = import.meta.env.BASE_URL;
 
 function Home() {
   const [openPhoto, setOpenPhoto] = useState(null);
   const [showContinue, setShowContinue] = useState(false);
+
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -15,19 +17,19 @@ function Home() {
   }, []);
 
   const memories = [
-    {
-      image: "/images/home-photo-1.png",
-      note: "One little picture, one little moment… and somehow, it became one of the memories I want to keep forever.🌹🌸 ♡",
-    },
-    {
-      image: "/images/home-photo-2.jpeg",
-      note: "Some moments feel ordinary when they happen, but later you realise they quietly became some of your favourites. ✨",
-    },
-    {
-      image: "/images/home-photo-3.png",
-      note: "And somewhere between all these tiny moments, all the laughs and everything in between… we became us. 🥹❤️",
-    },
-  ];
+  {
+    image: `${BASE}images/home-photo-1.png`,
+    note: "One little picture, one little moment… and somehow, it became one of the memories I want to keep forever.🌹🌸 ♡",
+  },
+  {
+    image: `${BASE}images/home-photo-2.jpeg`,
+    note: "Some moments feel ordinary when they happen, but later you realise they quietly became some of your favourites. ✨",
+  },
+  {
+    image: `${BASE}images/home-photo-3.png`,
+    note: "And somewhere between all these tiny moments, all the laughs and everything in between… we became us. 🥹❤️",
+  },
+];
 
   return (
     <main className="home">
@@ -96,15 +98,14 @@ function Home() {
             <div className="photo-glow"></div>
 
             <div className="hero-photo-card">
-
-              <video
-                src="/videos/fav-mem.mp4"
-                autoPlay
-                muted
-                loop
-                playsInline
-                preload="auto"
-              />
+<video
+  src={`${BASE}videos/fav-mem.mp4`}
+  autoPlay
+  muted
+  loop
+  playsInline
+  preload="auto"
+/>
 
               <span className="photo-corner top-left">♡</span>
               <span className="photo-corner bottom-right">✦</span>

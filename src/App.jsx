@@ -10,6 +10,7 @@ import { useEffect } from "react";
 import Home from "./pages/Home";
 import Cake from "./pages/Cake";
 import Memories from "./pages/Memories";
+const BASE = import.meta.env.BASE_URL;
 
 
 function ScrollToTop() {
@@ -70,7 +71,7 @@ function App() {
       {/* ================= WEBSITE MUSIC ================= */}
       <audio
         id="siteMusic"
-        src="/music/story-music.mp3"
+        src={`${BASE}music/story-music.mp3`}
         loop
         preload="auto"
       />
