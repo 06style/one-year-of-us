@@ -1,0 +1,408 @@
+/* =================================
+   WELCOME / LOVE LOCK SCREEN
+================================= */
+
+.welcome-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:
+    radial-gradient(
+      circle at 50% 42%,
+      #641d36 0%,
+      #3d1021 42%,
+      #210812 75%,
+      #120308 100%
+    );
+  color: #fff;
+  text-align: center;
+}
+
+.welcome-glow {
+  position: absolute;
+  width: 550px;
+  height: 550px;
+  border-radius: 50%;
+  background: rgba(224, 91, 126, 0.14);
+  filter: blur(100px);
+  pointer-events: none;
+}
+
+/* FLOATING HEARTS */
+
+.welcome-hearts {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.welcome-hearts span {
+  position: absolute;
+  color: rgba(255, 170, 193, 0.45);
+  animation: welcomeFloat 7s ease-in-out infinite;
+}
+
+.welcome-hearts span:nth-child(1) {
+  left: 8%;
+  top: 18%;
+  font-size: 22px;
+}
+
+.welcome-hearts span:nth-child(2) {
+  right: 10%;
+  top: 22%;
+  font-size: 17px;
+  animation-delay: 1s;
+}
+
+.welcome-hearts span:nth-child(3) {
+  left: 15%;
+  bottom: 22%;
+  font-size: 16px;
+  animation-delay: 2s;
+}
+
+.welcome-hearts span:nth-child(4) {
+  right: 18%;
+  bottom: 20%;
+  font-size: 13px;
+  animation-delay: 3s;
+}
+
+.welcome-hearts span:nth-child(5) {
+  left: 27%;
+  top: 12%;
+  font-size: 14px;
+  animation-delay: 1.5s;
+}
+
+.welcome-hearts span:nth-child(6) {
+  right: 30%;
+  top: 75%;
+  font-size: 20px;
+  animation-delay: 2.5s;
+}
+
+.welcome-hearts span:nth-child(7) {
+  left: 72%;
+  top: 14%;
+  font-size: 12px;
+  animation-delay: 4s;
+}
+
+.welcome-hearts span:nth-child(8) {
+  left: 6%;
+  bottom: 10%;
+  font-size: 18px;
+  animation-delay: 5s;
+}
+
+/* CONTENT */
+
+.welcome-content {
+  position: relative;
+  z-index: 5;
+  width: min(700px, 90%);
+  animation: welcomeAppear 1s ease;
+}
+
+.welcome-eyebrow {
+  display: block;
+  color: rgba(255, 218, 227, 0.72);
+  font-size: 10px;
+  letter-spacing: 5px;
+}
+
+.question-heart {
+  margin: 28px 0 18px;
+  color: #ef7898;
+  font-size: 54px;
+  line-height: 1;
+  animation: heartPulse 2s ease-in-out infinite;
+  text-shadow: 0 0 30px rgba(239, 120, 152, 0.45);
+}
+
+.welcome-content h1 {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(52px, 8vw, 88px);
+  font-weight: 400;
+  line-height: 0.98;
+  letter-spacing: -3px;
+}
+
+.welcome-content h1 span {
+  color: #f19ab3;
+  font-style: italic;
+}
+
+.welcome-content > p {
+  margin-top: 25px;
+  color: rgba(255, 224, 232, 0.72);
+  font-family: Georgia, serif;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+/* NO MESSAGE */
+
+.no-message {
+  min-height: 24px;
+  margin-top: 20px !important;
+  color: #f3a5b8 !important;
+  font-size: 14px !important;
+  opacity: 0.5;
+  transition: 0.4s ease;
+}
+
+.no-message.show {
+  opacity: 1;
+  animation: messageShake 0.45s ease;
+}
+
+/* BUTTONS */
+
+.answer-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  margin-top: 25px;
+}
+
+.answer-buttons button {
+  min-width: 120px;
+  padding: 13px 24px;
+  border-radius: 50px;
+  font-family: Georgia, serif;
+  font-size: 15px;
+  cursor: pointer;
+  transition: 0.35s ease;
+}
+
+.yes-button {
+  border: 1px solid #f5a2ba;
+  background: #e56d8d;
+  color: white;
+  box-shadow: 0 10px 30px rgba(229, 109, 141, 0.25);
+}
+
+.yes-button:hover {
+  transform: translateY(-4px) scale(1.04);
+  background: #ed7c9b;
+  box-shadow: 0 15px 35px rgba(229, 109, 141, 0.4);
+}
+
+.no-button {
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 235, 240, 0.8);
+  backdrop-filter: blur(10px);
+}
+
+.no-button:hover {
+  transform: translateY(-3px);
+  background: rgba(255, 255, 255, 0.14);
+}
+
+/* NO GETS LESS IMPORTANT */
+
+.no-1 {
+  transform: scale(0.96);
+}
+
+.no-2 {
+  transform: scale(0.91);
+}
+
+.no-3 {
+  transform: scale(0.86);
+}
+
+.no-4 {
+  transform: scale(0.8);
+}
+
+.no-5 {
+  transform: scale(0.74);
+  opacity: 0.75;
+}
+
+.waiting-text {
+  display: block;
+  margin-top: 22px;
+  color: rgba(255, 188, 204, 0.6);
+  font-family: Georgia, serif;
+  font-size: 12px;
+  font-style: italic;
+}
+
+/* BOTTOM */
+
+.welcome-bottom {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  color: rgba(255, 210, 220, 0.45);
+  font-size: 9px;
+  letter-spacing: 3px;
+}
+
+.welcome-bottom div {
+  width: 70px;
+  height: 1px;
+  background: rgba(255, 210, 220, 0.25);
+}
+
+/* =================================
+   BEGIN SCREEN
+================================= */
+
+.welcome-begin {
+  background:
+    radial-gradient(
+      circle at 50% 40%,
+      #76243f 0%,
+      #4a1228 40%,
+      #210812 80%,
+      #120308 100%
+    );
+}
+
+.welcome-big-heart {
+  margin: 30px 0 20px;
+  color: #ef7898;
+  font-size: 45px;
+  animation: heartPulse 2s ease-in-out infinite;
+  text-shadow: 0 0 35px rgba(239, 120, 152, 0.6);
+}
+
+.welcome-begin .welcome-content h1 {
+  font-size: clamp(45px, 7vw, 78px);
+}
+
+.welcome-begin .welcome-content h1 span {
+  color: #f0a0b7;
+}
+
+.begin-button {
+  margin-top: 35px;
+  padding: 15px 30px;
+  border: 1px solid rgba(255, 190, 205, 0.65);
+  border-radius: 50px;
+  background: rgba(255, 255, 255, 0.12);
+  color: white;
+  font-family: Georgia, serif;
+  font-size: 15px;
+  cursor: pointer;
+  backdrop-filter: blur(12px);
+  transition: 0.4s ease;
+}
+
+.begin-button span {
+  margin-left: 15px;
+}
+
+.begin-button:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+}
+
+/* ANIMATIONS */
+
+@keyframes welcomeAppear {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes welcomeFloat {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0.3;
+  }
+
+  50% {
+    transform: translateY(-25px) rotate(8deg);
+    opacity: 0.8;
+  }
+}
+
+@keyframes heartPulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.15);
+  }
+}
+
+@keyframes messageShake {
+  0% {
+    transform: translateX(0);
+  }
+
+  25% {
+    transform: translateX(-7px);
+  }
+
+  50% {
+    transform: translateX(7px);
+  }
+
+  75% {
+    transform: translateX(-4px);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+  .welcome-content {
+    width: 92%;
+  }
+
+  .welcome-content h1 {
+    font-size: clamp(45px, 14vw, 65px);
+  }
+
+  .question-heart {
+    font-size: 45px;
+  }
+
+  .welcome-content > p {
+    font-size: 13px;
+  }
+
+  .answer-buttons button {
+    min-width: 105px;
+    padding: 12px 20px;
+  }
+
+  .welcome-bottom {
+    bottom: 20px;
+  }
+}

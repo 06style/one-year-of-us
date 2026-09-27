@@ -1,0 +1,479 @@
+/* =====================================================
+   MENU DOT
+===================================================== */
+
+.menu-dot {
+  position: fixed;
+
+  top: 24px;
+  right: 25px;
+
+  width: 46px;
+  height: 46px;
+
+  border: 1px solid rgba(255, 225, 233, 0.55);
+
+  border-radius: 50%;
+
+  /*
+    TRANSPARENT GLASS
+  */
+
+  background: rgba(255, 240, 245, 0.18);
+
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+  align-items: center;
+
+  gap: 4px;
+
+  cursor: pointer;
+
+  z-index: 1001;
+
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease,
+    box-shadow 0.3s ease;
+
+  box-shadow:
+    0 5px 20px rgba(70, 10, 30, 0.12),
+    inset 0 0 12px rgba(255, 255, 255, 0.08);
+}
+
+
+/* dots */
+
+.menu-dot span {
+  width: 4px;
+  height: 4px;
+
+  border-radius: 50%;
+
+  background: #fff1f5;
+
+  box-shadow:
+    0 0 7px rgba(255, 190, 205, 0.8);
+
+  transition: 0.3s ease;
+}
+
+
+/* hover */
+
+.menu-dot:hover {
+  transform: scale(1.08);
+
+  background: rgba(255, 225, 235, 0.25);
+
+  border-color: rgba(255, 240, 245, 0.8);
+
+  box-shadow:
+    0 0 25px rgba(255, 130, 160, 0.22),
+    inset 0 0 15px rgba(255, 255, 255, 0.12);
+}
+
+
+/* active */
+
+.menu-dot.active {
+  background: rgba(255, 225, 235, 0.3);
+
+  transform: rotate(90deg);
+}
+
+
+/* =====================================================
+   SIDE MENU
+===================================================== */
+
+.side-menu {
+  position: fixed;
+
+  top: 0;
+  right: -340px;
+
+  width: 310px;
+  height: 100vh;
+
+  /*
+    TRANSPARENT GLASS
+  */
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(105, 25, 50, 0.78),
+      rgba(65, 12, 30, 0.84)
+    );
+
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+
+  border-left:
+    1px solid rgba(255, 225, 233, 0.22);
+
+  box-shadow:
+    -15px 0 55px rgba(25, 0, 12, 0.28),
+    inset 15px 0 30px rgba(255, 180, 200, 0.03);
+
+  z-index: 1000;
+
+  transition:
+    right 0.45s cubic-bezier(.77, 0, .18, 1);
+
+  overflow-y: auto;
+}
+
+
+/* OPEN */
+
+.side-menu.menu-open {
+  right: 0;
+}
+
+
+/* =====================================================
+   INNER
+===================================================== */
+
+.side-menu-inner {
+  padding: 38px 28px;
+}
+
+
+/* =====================================================
+   MENU TITLE
+===================================================== */
+
+.menu-title {
+  display: flex;
+
+  justify-content: space-between;
+  align-items: flex-start;
+
+  padding-bottom: 25px;
+
+  margin-bottom: 14px;
+
+  border-bottom:
+    1px solid rgba(255, 225, 233, 0.18);
+}
+
+
+/* tiny heading */
+
+.menu-small-title {
+  display: block;
+
+  font-family: Georgia, serif;
+
+  font-size: 9px;
+
+  letter-spacing: 3px;
+
+  color: rgba(255, 220, 230, 0.72);
+
+  margin-bottom: 8px;
+}
+
+
+/* main menu heading */
+
+.menu-title h3 {
+  margin: 0;
+
+  font-family: Georgia, serif;
+
+  font-size: 22px;
+
+  font-weight: 400;
+
+  font-style: italic;
+
+  color: #fff1f5;
+
+  text-shadow:
+    0 0 12px rgba(255, 160, 185, 0.35);
+}
+
+
+/* close */
+
+.menu-close {
+  width: 34px;
+  height: 34px;
+
+  border: 1px solid rgba(255, 225, 233, 0.25);
+
+  border-radius: 50%;
+
+  background: rgba(255, 235, 242, 0.08);
+
+  color: #ffe8ee;
+
+  font-size: 24px;
+
+  line-height: 1;
+
+  cursor: pointer;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  transition: 0.3s ease;
+}
+
+.menu-close:hover {
+  background: rgba(255, 220, 230, 0.18);
+
+  transform: rotate(90deg);
+}
+
+
+/* =====================================================
+   SIDE LINKS
+===================================================== */
+
+.side-link {
+
+  width: 100%;
+
+  display: flex;
+
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 19px 5px;
+
+  color: #ffeaf0;
+
+  text-decoration: none;
+
+  font-family: Georgia, serif;
+
+  font-size: 19px;
+
+  font-style: italic;
+
+  border-bottom:
+    1px solid rgba(255, 225, 233, 0.10);
+
+  transition:
+    padding 0.3s ease,
+    color 0.3s ease,
+    background 0.3s ease;
+
+  box-sizing: border-box;
+}
+
+
+/* left content */
+
+.side-link span {
+  display: flex;
+
+  align-items: center;
+
+  gap: 13px;
+}
+
+
+/* numbers */
+
+.side-link span small {
+  font-family: Arial, sans-serif;
+
+  font-size: 9px;
+
+  font-style: normal;
+
+  letter-spacing: 1px;
+
+  color: rgba(255, 210, 222, 0.48);
+}
+
+
+/* right heart / lock */
+
+.side-link b {
+  font-size: 14px;
+
+  font-weight: 400;
+
+  color: #ffc8d6;
+
+  transition: 0.3s ease;
+}
+
+
+/* unlocked hover */
+
+.side-link.unlocked:hover {
+  padding-left: 13px;
+
+  color: #ffffff;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(255, 180, 200, 0.08),
+      transparent
+    );
+}
+
+
+.side-link.unlocked:hover b {
+  transform: scale(1.2);
+
+  text-shadow:
+    0 0 12px rgba(255, 120, 150, 0.8);
+}
+
+
+/* =====================================================
+   LOCKED LINKS
+===================================================== */
+
+.side-link.locked {
+  opacity: 0.38;
+
+  cursor: not-allowed;
+
+  user-select: none;
+}
+
+
+.side-link.locked b {
+  font-size: 11px;
+
+  filter: grayscale(.2);
+
+  opacity: .8;
+}
+
+
+/* =====================================================
+   MENU NOTE
+===================================================== */
+
+.menu-note {
+
+  margin-top: 55px;
+
+  padding: 22px 10px;
+
+  text-align: center;
+
+  border-top:
+    1px solid rgba(255, 225, 233, 0.10);
+}
+
+
+.menu-note span {
+  display: block;
+
+  margin-bottom: 10px;
+
+  color: #ffb8c9;
+
+  font-size: 18px;
+
+  text-shadow:
+    0 0 12px rgba(255, 100, 140, .6);
+}
+
+
+.menu-note p {
+  margin: 0;
+
+  font-family: Georgia, serif;
+
+  font-size: 12px;
+
+  line-height: 1.8;
+
+  font-style: italic;
+
+  color: rgba(255, 225, 233, .52);
+}
+
+
+/* =====================================================
+   BACKDROP
+===================================================== */
+
+.menu-backdrop {
+  position: fixed;
+
+  inset: 0;
+
+  background:
+    rgba(30, 5, 15, 0.28);
+
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+
+  z-index: 999;
+
+  animation: backdropFade .3s ease;
+}
+
+
+@keyframes backdropFade {
+
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 600px) {
+
+  .menu-dot {
+    top: 16px;
+    right: 16px;
+
+    width: 42px;
+    height: 42px;
+  }
+
+
+  .side-menu {
+    width: min(310px, 86vw);
+  }
+
+
+  .side-menu-inner {
+    padding: 30px 23px;
+  }
+
+
+  .side-link {
+    font-size: 17px;
+
+    padding: 17px 3px;
+  }
+
+
+  .menu-title h3 {
+    font-size: 20px;
+  }
+
+}
